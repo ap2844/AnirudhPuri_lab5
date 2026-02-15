@@ -1,27 +1,14 @@
-# AnirudhPuri_Lab5
 # Machine Learning and Pattern Recognition  
 ## Lab 5 – Spring Semester 2026
 
 ## Aim
-The objective of this lab is to detect faces in an image, extract simple color-based features from the detected faces, cluster them using K-Means, and classify a template face into one of the identified clusters.
+The aim of this lab is to detect faces in an image, extract simple color features from the detected faces, cluster them using K-Means, and classify a separate template image based on those clusters.
 
 ## Methodology
-1. **Face Detection:**  
-   Haar Cascade Classifier (OpenCV) was used to detect faces in the given image.
+First the faces were detected using the Haar Cascade classifier in OpenCV and each detected face was converted to HSV color space, and the mean Hue and Saturation values were calculated to form a feature vector. Then K-Means clustering was applied to group faces based on these features. And finally, the same feature extraction process was applied to the template image, and its cluster label was predicted using the trained K-Means model.
 
-2. **Feature Extraction:**  
-   Each detected face was converted to HSV color space. The mean Hue and Saturation values were computed to form a 2D feature vector for each face.
-
-3. **Clustering:**  
-   K-Means clustering was applied to the (Hue, Saturation) feature vectors to group faces into clusters.
-
-4. **Template Classification:**  
-   The template image (Dr_Shashi_Tharoor.jpg) was processed in the same way. Its HSV features were extracted and the trained K-Means model was used to predict its cluster label.
-
-## Key Observations
-- Faces were grouped based on color characteristics rather than identity.
-- The template image was assigned to the cluster whose centroid was closest in feature space.
-- The value of K influences clustering behavior and cluster separation.
+## Observations
+The clustering grouped faces based on overall color characteristics like hue and saturation rather than identity. The template image was assigned to the cluster whose centroid was closest in the feature space.
 
 ## Conclusion
-This lab demonstrates how basic color features combined with K-Means clustering can be used to group similar faces. It highlights the importance of feature selection and shows how clustering can be applied for simple image-based classification tasks.
+This experiment demonstrates how simple feature extraction combined with K-Means clustering can be used for basic grouping and classification tasks in image processing.
